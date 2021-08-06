@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    background: linear-gradient(to bottom, #6666ff 0%, #ff99cc 100%);
 }
 
 h1 {
@@ -35,6 +36,8 @@ h6 {
     border-radius: 1em;
     box-shadow: 0px 0px 10px #646464;
     margin: 1.5%;
+    background: rgba(255, 255, 255, 0.513);
+    color: black;
 }
 
 .big-panel {
@@ -65,7 +68,7 @@ h6 {
 .iterable-button:hover {
     font-size: 3.5em;
     border-radius: 0.2em;
-    background-color: rgb(179, 255, 0);
+    background-color: rgb(189, 255, 102);
     box-shadow: 1px 1px 10px;
 }
 
