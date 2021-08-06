@@ -9,7 +9,9 @@ BASE_CONTEXT = {
 }
 
 def get_complete_context(dict):
-    return {**BASE_CONTEXT, **dict}
+    iterables = [a.__dict__ for a in ArtistLabel.objects.all()]
+    #iterables.sort(,)
+    return {**BASE_CONTEXT, **{**{'iterable' : iterables}, **dict}}
 
 class ArtistListIterator():
     name = ''
@@ -34,7 +36,6 @@ def label_presentation(request):
 
 def label_artist_presentation(request, artist_id):
     context = get_complete_context({
-        'iterable' : [a.__dict__ for a in ArtistLabel.objects.all()],
         'artist': ArtistLabel.objects.get(id=artist_id),
         'active_iterator': artist_id,
     })

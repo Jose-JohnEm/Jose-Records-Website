@@ -2,21 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-@keyframes iterable_hovered {
-    0%
-    {
-        background-color: auto;
-        font-size: auto;
-        border-radius: auto;
-    }
-    100%
-    {
-        background-color: rgb(251, 255, 0);
-        font-size: 4em;
-        border-radius: 0.5em;
-    }
-}
-
 h1 {
     font-family: 'MonteCarlo', cursive;
     font-size: 12em;
@@ -72,17 +57,20 @@ h6 {
     font-size: 3em;
     margin: 4% 10%;
     border-radius: 0.1em;
-    background-color: rgb(247, 255, 212);
-
+    background-color: rgb(251, 255, 233);
+    transition: 0.5s;
+    box-shadow: 1px 1px 0.1px;
 }
 
 .iterable-button:hover {
-    animation: iterable_hovered 0.5s; 
-    animation-fill-mode: forwards;
+    font-size: 3.5em;
+    border-radius: 0.2em;
+    background-color: rgb(179, 255, 0);
+    box-shadow: 1px 1px 10px;
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: #ffe600ca;
 }
 
 .artist-label-picture {
