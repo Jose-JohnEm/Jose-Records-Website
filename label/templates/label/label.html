@@ -10,9 +10,9 @@
 
 {% else %}
 
-    <image src="{{ artist.picture.url }}">
-    <h2>{{ artist.name }}</h2>
-    <h3>{{ artist.text }}</h3>
+    <image class="artist-label-picture" src="{{ artist.picture.url }}">
+    <h2 class="artist-label-name">{{ artist.name }}</h2>
+    <h3 class="artist-label-text">{{ artist.text }}</h3>
 
     <br>
     <h4>{% if artist.labeled %} Cet artiste a fait parti du Label José Records !

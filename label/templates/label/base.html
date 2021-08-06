@@ -13,6 +13,23 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+
+    {% if page_name != "Bienvenue" %}
+    <script type="text/javascript">
+    window.onload = () => {
+        
+        console.log("debut");
+        var my_element = document.getElementById("big-panel");
+
+        my_element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+        console.log("fin");
+    }
+    </script>
+    {% endif %}
     
 </head>
 <body>
@@ -30,7 +47,7 @@
 
 
     </div>
-    <div class="big-panel card">
+    <div id="big-panel" class="big-panel card">
         {% block content %} {% endblock content %}
     </div>
 

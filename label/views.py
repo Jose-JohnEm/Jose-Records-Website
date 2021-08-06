@@ -27,7 +27,7 @@ def index(request):
 
 def label_presentation(request):
     context = get_complete_context({
-        'iterable' : ArtistLabel.objects.all()
+        'iterable' : [a.__dict__ for a in ArtistLabel.objects.all()],
     })
 
     return render(request, 'label/label.html', context)

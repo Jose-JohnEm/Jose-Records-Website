@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 @keyframes iterable_hovered {
     0%
     {
@@ -15,7 +19,7 @@
 
 h1 {
     font-family: 'MonteCarlo', cursive;
-    font-size: 15em;
+    font-size: 12em;
     text-align: center;
 }
 
@@ -79,4 +83,23 @@ h6 {
 
 .active {
     background-color: #04AA6D;
+}
+
+.artist-label-picture {
+    float: left;
+    width: 25em;
+    border: 100% solid black;
+    border-radius: 3%;
+    margin: 5% 0% 5% 5%;
+    display: block;
+    box-shadow: 0px 0px 10px #646464;
+}
+
+.artist-label-name {
+    font-size: 10em;
+    margin: 10% 0%;
+}
+
+.artist-label-text {
+    margin: 5%;
 }
