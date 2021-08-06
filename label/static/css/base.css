@@ -1,0 +1,82 @@
+@keyframes iterable_hovered {
+    0%
+    {
+        background-color: auto;
+        font-size: auto;
+        border-radius: auto;
+    }
+    100%
+    {
+        background-color: rgb(251, 255, 0);
+        font-size: 4em;
+        border-radius: 0.5em;
+    }
+}
+
+h1 {
+    font-family: 'MonteCarlo', cursive;
+    font-size: 15em;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 4em;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5em;
+}
+
+h4 {
+    font-family: 'Questrial', sans-serif;
+}
+
+h5 {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h6 {
+    font-family: 'Jura', sans-serif;
+}
+
+.card {
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px #646464;
+    margin: 1.5%;
+}
+
+.big-panel {
+    float: right;
+    width: 74%;
+}
+
+.mid-panel {
+    float: left;
+    width: 20%;
+}
+
+.iterable-title {
+    color: black;
+    text-decoration: none;
+}
+
+.iterable-button {
+    text-align: center;
+    font-size: 3em;
+    margin: 4% 10%;
+    border-radius: 0.1em;
+    background-color: rgb(247, 255, 212);
+
+}
+
+.iterable-button:hover {
+    animation: iterable_hovered 0.5s; 
+    animation-fill-mode: forwards;
+}
+
+.active {
+    background-color: #04AA6D;
+}

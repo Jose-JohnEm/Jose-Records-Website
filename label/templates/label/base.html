@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1080, initial-scale=1.0">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=MonteCarlo&family=Questrial&family=Rajdhani:wght@300&family=Roboto+Slab:wght@500&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    
+</head>
+<body>
+
+    <h1>{{ page_name }}</h1>
+
+    {% include 'label/navbar.html' with active=nav_current %}
+
+    <div class="mid-panel card">
+        <h4 style="font-size: 2em;">Plus de détails sur {{ iterable_name }} </h4>
+
+        {% for iterator in iterable %}
+            <h3 class="iterable-button {% if active_iterator == iterator.id %} active {% endif %}"><a class="iterable-title" href="/{{ app_name }}/{{ iterator.id }}">{{ iterator.name }}</a></h3>
+        {% endfor %}
+
+
+    </div>
+    <div class="big-panel card">
+        {% block content %} {% endblock content %}
+    </div>
+
+</body>
+</html>
