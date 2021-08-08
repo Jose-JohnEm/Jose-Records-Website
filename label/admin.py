@@ -18,3 +18,19 @@ class ArtistLabelPageAdmin(admin.ModelAdmin):
             width=obj.picture.width,
             height=obj.picture.height)
         )
+
+@admin.register(ProdType)
+class ProdTypePageAdmin(admin.ModelAdmin):
+    fieldsets = [[
+        None, {
+            'fields': ['name']
+        }
+    ]]
+
+@admin.register(Prodbeat)
+class ProdBeatPageAdmin(admin.ModelAdmin):
+    fieldsets = [[
+        None, {
+            'fields': ['name', 'reference', 'music', 'genre']
+        }
+    ]]
