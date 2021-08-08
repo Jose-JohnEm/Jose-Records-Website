@@ -13,12 +13,12 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/player.css' %}" type="text/css">
 
     {% if page_name != "Bienvenue" %}
     <script type="text/javascript">
     window.onload = () => {
         
-        console.log("debut");
         var my_element = document.getElementById("big-panel");
 
         my_element.scrollIntoView({
@@ -26,7 +26,46 @@
             block: "start",
             inline: "nearest"
         });
-        console.log("fin");
+
+        {% if prods %}
+
+            var current_beat = -1
+
+            let btns = document.getElementsByClassName('button')
+            let beat = []
+            
+            {% for prod in prods %}
+                beat.push(document.getElementById('prod{{ forloop.counter0 }}'))
+                beat[{{ forloop.counter0 }}].currentTime = 30
+                beat[{{ forloop.counter0 }}].muted = true
+                console.log('{{ forloop.counter0 }}')
+            {% endfor %}
+
+            {% for prod in prods %}
+
+            btns[{{ forloop.counter0 }}].onclick = function ()
+            {
+                if (beat[{{ forloop.counter0 }}].muted) {
+                    if (current_beat !== -1)
+                    {
+                        beat[current_beat].muted = true
+                        beat[current_beat].currentTime = 30
+                        btns[current_beat].classList.remove('paused')
+                    }
+                    current_beat = {{ forloop.counter0 }}
+                    beat[{{ forloop.counter0 }}].muted = false
+                    beat[{{ forloop.counter0 }}].play()
+                btns[{{ forloop.counter0 }}].classList.add('paused')
+                }
+                else {
+                    beat[{{ forloop.counter0 }}].muted = true
+                    beat[{{ forloop.counter0 }}].currentTime = 30
+                btns[{{ forloop.counter0 }}].classList.remove('paused')
+                }
+            }
+        {% endfor %}
+
+        {% endif %}
     }
     </script>
     {% endif %}

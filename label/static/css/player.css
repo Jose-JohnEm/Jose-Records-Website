@@ -1,0 +1,48 @@
+.button {
+    box-sizing: border-box;
+    width: 0;
+    height: 74px;
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+    border-color: transparent transparent transparent #000000;
+    cursor: pointer;
+    will-change: border-width;
+    transition: all .2s ease;
+    float: left;
+    margin: 3em;
+}
+
+.button.paused {
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+    border-color: transparent transparent transparent #ff0000;
+}
+    
+.button:hover {
+    border-color: transparent transparent transparent #ff0000;
+}
+
+.instru-card {
+    background-color: white;
+    color: black;
+    border-radius: 4em 2em;
+    float: left;
+    margin: 2em 4em;
+    width: 20em;
+    border: solid white 2px;
+}
+
+.instru-card:hover {
+    border-radius: 4em;
+}
+
+.instru-card:focus {
+    
+    background-color: black;
+    color: white;
+}
+
+.instru-text {
+    float: center;
+    text-align: center;
+}

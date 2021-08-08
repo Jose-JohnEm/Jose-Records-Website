@@ -9,17 +9,21 @@ BASE_CONTEXT = {
 }
 
 def get_complete_context(dict):
-    iterables = [{**a.__dict__, **{'size': len(Prodbeat.objects.filter(genre=a))}} for a in ProdType.objects.all()]
+    iterables = [{**a.__dict__, **{'size': Prodbeat.objects.filter(genre=a).count()}} for a in ProdType.objects.all()]
     return {**BASE_CONTEXT, **{**{'iterable' : iterables}, **dict}}
 
 def get_complete_context_with_genre(dict, genre):
-    iterables = [a.__dict__ for a in Prodbeat.objects.filter(name=genre)]
-    return {**BASE_CONTEXT, **{**{'iterable' : iterables}, **dict}}
+    iterables = [a.__dict__ for a in ProdType.objects.all()]
+    prods = [a for a in Prodbeat.objects.filter(genre=ProdType.objects.get(id=genre))]
+    type_size = len(prods)
+    type_name = ProdType.objects.get(id=genre).name
+    return {**BASE_CONTEXT, **{**{'iterable' : iterables, 'prods': prods, 'type_name': type_name, 'type_size': type_size}, **dict}}
+
 
 def btm_presentation(request):
     context = get_complete_context({})
     return render(request, 'label/btm.html', context)
 
 def btm_types_presentation(request, type_id):
-    context = get_complete_context({}, type_id)
+    context = get_complete_context_with_genre({}, type_id)
     return render(request, 'label/btm.html', context)
