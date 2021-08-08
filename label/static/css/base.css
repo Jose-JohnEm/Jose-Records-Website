@@ -35,10 +35,14 @@ h6 {
 
 .card {
     border-radius: 1em;
-    box-shadow: 0px 0px 10px #646464;
+    box-shadow: 0px 0px 10px #000000;
     margin: 1.5%;
-    background: rgba(255, 255, 255, 0.513);
-    color: black;
+    background: rgb(0, 0, 0);
+    color: rgb(211, 211, 211);
+}
+
+.card:target {
+    box-shadow: 0px 0px 5px #000000;
 }
 
 .big-panel {
@@ -63,18 +67,19 @@ h6 {
     border-radius: 0.1em;
     background-color: rgb(251, 255, 233);
     transition: 0.5s;
-    box-shadow: 1px 1px 0.1px;
+    box-shadow: 1px 1px 5px white;
+    border-radius: 0.6em 0.2em;
 }
 
 .iterable-button:hover {
     font-size: 3.5em;
-    border-radius: 0.2em;
-    background-color: rgb(189, 255, 102);
-    box-shadow: 1px 1px 10px;
+    background-color: rgb(255, 187, 0);
+    box-shadow: 1px 1px 5px rgb(255, 187, 0);
 }
 
-.active {
-    background-color: #ffe600ca;
+.iterable-button.active {
+    background-color: #ff0000;
+    box-shadow: 1px 1px 5px #ff0000;
 }
 
 .artist-label-picture {
@@ -84,7 +89,7 @@ h6 {
     border-radius: 3%;
     margin: 5% 0% 5% 5%;
     display: block;
-    box-shadow: 0px 0px 10px #646464;
+    box-shadow: 0px 0px 10px #ffffff;
 }
 
 .artist-label-name {
