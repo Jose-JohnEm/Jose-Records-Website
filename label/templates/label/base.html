@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=MonteCarlo&family=Questrial&family=Rajdhani:wght@300&family=Roboto+Slab:wght@500&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
 
     {% if page_name != "Bienvenue" %}
     <script type="text/javascript">
@@ -42,7 +42,7 @@
     {% if page_name != "Bienvenue" %}
 
     <div class="mid-panel card">
-        <h4 style="font-size: 2em;">Plus de détails sur {{ iterable_name }} </h4>
+        <h4 style="font-size: 2em; text-align: center">Plus de détails sur {{ iterable_name }} </h4>
 
         {% for iterator in iterable %}
             <h3 class="iterable-button {% if active_iterator == iterator.id %} active {% endif %}"><a class="iterable-title" href="/{{ app_name }}/{{ iterator.id }}">{{ iterator.name }}</a></h3>

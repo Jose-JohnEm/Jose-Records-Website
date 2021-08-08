@@ -21,14 +21,13 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from label import views
 import label
-
+from label.label_views import index as mainpage
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', mainpage, name='index'),
     path('admin/', admin.site.urls),
-    path('label/', include(('label.urls', "label")))
+    path('', include('label.urls'))
 ]
 
 if settings.DEBUG:
