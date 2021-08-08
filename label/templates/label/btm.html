@@ -2,8 +2,32 @@
 
 {% block content %}
 
+
+{% if not type %}
+
 <div>
-    <h3>BTM</h3>
+    <div>
+        <h2>Un service de composition accessible</h2>
+        <h3 style="margin: 3em;">B.T.M Production, décliné de José Records est l'organisme qui a à charge la compition d'oeuvre instrumentale</h3>
+
+    </div>
+
+    <div style="margin: 7em">
+        <h2 style="font-size:2em;">Voici les types de productions produites :</h2>
+
+        {% for type in iterable %}
+            <a class="prod-card" href="/btm/{{type.id}}">
+                <h3>{{ type.name }}</h3>
+                <h4>{{ type.size }} choix</h4>
+            </a>
+        {% endfor %}
+
+    </div>
 </div>
+
+{% else %}
+
+{% endif %}
+
 
 {% endblock %}

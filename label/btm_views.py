@@ -9,7 +9,7 @@ BASE_CONTEXT = {
 }
 
 def get_complete_context(dict):
-    iterables = [a.__dict__ for a in ProdType.objects.all()]
+    iterables = [{**a.__dict__, **{'size': len(Prodbeat.objects.filter(genre=a))}} for a in ProdType.objects.all()]
     return {**BASE_CONTEXT, **{**{'iterable' : iterables}, **dict}}
 
 def get_complete_context_with_genre(dict, genre):
