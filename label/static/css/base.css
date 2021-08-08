@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
-    background: linear-gradient(to bottom, #6666ff 0%, #ff99cc 100%);
+    /*background: linear-gradient(to bottom, #6666ff 0%, #ff99cc 100%);*/
+    background: linear-gradient(to bottom, #000000 0%, #ff0000 59%);
 }
 
 h1 {
