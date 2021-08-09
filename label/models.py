@@ -1,4 +1,6 @@
+from os import name
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -20,7 +22,7 @@ class ArtistLabel(models.Model):
         verbose_name_plural = 'Artistes Clients/Labelisés'
 
 
-####### LD2J #######
+####### BTM #######
 
 class ProdType(models.Model):
     name = models.CharField(max_length=30, verbose_name="Type")
@@ -48,3 +50,47 @@ class Prodbeat(models.Model):
         managed = True
         verbose_name = 'Production'
         verbose_name_plural = 'Productions'
+
+
+####### LD2J #######
+class LD2JContributor(models.Model):
+    name = models.CharField(verbose_name="Nom de scène du contributeur", max_length=30)
+        
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Contributeur'
+        verbose_name_plural = 'Contributeurs'
+
+class LD2JMusic(models.Model):
+    name = models.CharField(verbose_name="Titre", max_length=30)
+    contributors = models.ManyToManyField(LD2JContributor, verbose_name="Contributeurs", blank=True)
+        
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Musique'
+        verbose_name_plural = 'Musiques'
+
+class LD2JAlbum(models.Model):
+    name = models.CharField(verbose_name="Titre de l'album", max_length=30)
+    released = models.CharField(verbose_name="Date de sortie", max_length=30)
+    picture = models.ImageField(verbose_name="Jaquette")
+    contributors = models.ManyToManyField(LD2JContributor, verbose_name="Contributeurs", blank=True)
+    hyperfollowlink = models.URLField(verbose_name="Lien Hyperfollow")
+    musics = models.ManyToManyField(LD2JMusic, verbose_name="Musiques")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albums'

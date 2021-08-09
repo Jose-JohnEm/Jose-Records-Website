@@ -34,3 +34,30 @@ class ProdBeatPageAdmin(admin.ModelAdmin):
             'fields': ['name', 'reference', 'music', 'genre']
         }
     ]]
+
+
+@admin.register(LD2JMusic)
+class LD2JMusicPageAdmin(admin.ModelAdmin):
+    fieldsets = [[
+        None, {
+            'fields': ['name', 'contributors']
+        }
+    ]]
+
+
+@admin.register(LD2JContributor)
+class LD2JContributorPageAdmin(admin.ModelAdmin):
+    fieldsets = [[
+        None, {
+            'fields': ['name']
+        }
+    ]]
+
+
+@admin.register(LD2JAlbum)
+class LD2JAlbumPageAdmin(admin.ModelAdmin):
+    fieldsets = [[
+        None, {
+            'fields': ['name', 'released', 'picture', 'contributors', 'hyperfollowlink', 'musics']
+        }
+    ]]
