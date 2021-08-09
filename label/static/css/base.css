@@ -177,3 +177,9 @@ h6 {
     background-color: black;
     color: red;
 }
+
+.narrative-text {
+    margin: 1em 5em;
+    text-align: justify;
+    line-height: 2em;
+}
