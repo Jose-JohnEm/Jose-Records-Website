@@ -26,6 +26,7 @@ class ArtistLabel(models.Model):
 
 class ProdType(models.Model):
     name = models.CharField(max_length=30, verbose_name="Type")
+    example = models.FileField(verbose_name="Instrumentale exemple", blank=True)
 
     def __str__(self):
         return self.name

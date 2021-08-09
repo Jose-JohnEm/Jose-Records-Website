@@ -69,12 +69,30 @@
         {% endif %}
     }
     </script>
+    {% else %}
+    <script>
+        window.onload = function () {
+            window.scrollTo(0, 0);
+            welcome = document.getElementById('welcome')
+            welcome.classList.add('welcome-title')
+
+            setTimeout(function () {
+                var my_element = document.getElementById("navbar");
+
+                my_element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
+            }, 8000)
+        }
+    </script>
     {% endif %}
     
 </head>
 <body>
 
-    <h1>{{ page_name }}</h1>
+    <h1 id="welcome">{{ page_name }}</h1>
 
     {% include 'label/navbar.html' with active=nav_current %}
 
