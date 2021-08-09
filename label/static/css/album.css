@@ -1,0 +1,95 @@
+.album_info {
+    margin: 5em 5em 1em 5em;
+    border-radius: 5em 5em 0em 0em;
+    background-color: red;
+    display: flex;
+}
+
+.album_pic {
+    border-radius: 1em;
+    margin: 5em 0em 5em 5em;
+    flex: 1;
+    width: 20em;
+    box-shadow: 0px 0px 6px black;
+}
+
+.album_info_text {
+    color: black;
+    text-align: center;
+    margin: 5em 2em 0em 2em;
+}
+
+.album_titles {
+    margin: 1em 5em 5em 5em;
+    border-radius: 0em 0em 5em 5em;
+    background-color: black;
+    border: solid 4px red;
+}
+
+.album_title_text {
+    font-size: 2em;
+    margin: 1em;
+}
+
+@keyframes hyperfollow
+{
+    from {
+        background-color: black;
+        color: red;
+        box-shadow: 0px 0px 5px black;
+    } 50% {
+        background-color: red;
+        color: black;
+        box-shadow: 0px 0px 1px red;
+    } to {  
+        background-color: black;
+        color: red;
+        box-shadow: 0px 0px 5px black;
+    }
+}
+
+@keyframes hyperfollow_hover
+{
+    from {
+        border-radius: 6em;
+        background-color: red;
+        color: black;
+    } 25% {
+        background-color: black;
+        border-radius: 1em;
+        color: red;
+
+    } 50% {
+        background-color: red;
+        border-radius: 6em;
+        color: black;
+
+    } 75% {
+        background-color: black;
+        border-radius: 1em;
+        color: red;
+
+    } to {
+        background-color: red;
+        border-radius: 6em;
+        color: black;
+    }
+}
+
+.listen_link, .listen_link a{
+    text-decoration: none;
+    background-color: black;
+    color: red ;
+    transition: 0.5s;
+    animation-name: 'hyperfollow';
+    animation-duration: 10s; 
+    animation-iteration-count: infinite;
+    margin: 0em 5em;
+}
+
+.listen_link:hover, .listen_link a:hover{
+    animation-name: 'hyperfollow_hover';
+    border-radius: 6em 1em;
+    animation-duration: 3s; 
+    animation-iteration-count: infinite;
+}

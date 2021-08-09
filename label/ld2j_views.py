@@ -17,8 +17,22 @@ def index(request):
     return render(request, 'label/ld2j.html', context)
 
 def ld2j_album_presentation(request, album_id):
+    album = LD2JAlbum.objects.get(id=album_id)
+    ctb = ", ".join([c.name for c in album.contributors.all()])
+    tmp_titles = album.musics.all()
+    final_titles = []
+
+    for ti in tmp_titles:
+        if ti.contributors.all().count() != 0:
+            contri = [t.name for t in ti.contributors.all()]
+            final_titles += [ti.name + " (ft. " + " & ".join(contri) + ")"]
+        else:
+            final_titles += [ti.name]
+
+    ctb = ctb[:ctb.rfind(", ")] + " et " + ctb[ctb.rfind(", ") + 2:]
     context = get_complete_context({
-        'album': LD2JAlbum.objects.get(id=album_id),
-        'titles': LD2JAlbum.objects.musics.all(),
+        'album': album,
+        'titles': final_titles,
+        'contributors': ctb,
     })
     return render(request, 'label/ld2j.html', context)

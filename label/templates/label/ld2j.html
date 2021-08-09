@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% if not album %}
+
 <div>
     <h2>LD2J, un rappeur ambitieux</h2>
     <h3 class="narrative-text">
@@ -13,5 +15,34 @@
         car désormais il a pu s'enregistrer plusieurs fois sur scène et a même eu l'occasion de se produire en concert à 2 reprises.
     </h3>
 </div>
+
+{% else %}
+
+<div>
+    <div class="album_info">
+        <image class="album_pic" src="{{ album.picture.url }}">
+        <div class="album_info_text">
+            <h2 style="">{{ album.name}}</h2>
+            <h3 style="text-align: center; font-size: 4em;">LD2J</h3>
+            <h3>avec la participation de {{ contributors }}</h3>
+        </div>
+    </div>
+    <div class="listen_link">
+        <a style="text-decoration: none;" href="{{ album.hyperfollowlink}}">
+            <h2>Ecouter sur les platefromes</h2>
+        </a>
+    </div>
+    <div class="album_titles">
+
+        {% for title in titles %}
+        <div class="album_title_text">
+            <h4>{{ forloop.counter }} - {{ title }}</h4>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
