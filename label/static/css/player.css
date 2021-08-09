@@ -31,6 +31,7 @@
     width: 20em;
     border: solid white 4px;
     transition: 0.5s;
+    box-shadow: 1px 1px 5px white;
 }
 
 .instrucard:hover {
