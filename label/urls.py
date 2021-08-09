@@ -17,6 +17,7 @@ ld2j_patterns = [
 btm_patterns = [
     path('btm/', btm_views.btm_presentation, name='btm_presentation'),
     path('btm/<int:type_id>', btm_views.btm_types_presentation, name='btm_types_presentation'),
+    path('btm/search', btm_views.btm_research, name='btm_research'),
 ]
 
 urlpatterns = label_patterns + ld2j_patterns + btm_patterns

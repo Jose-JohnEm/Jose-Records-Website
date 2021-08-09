@@ -9,7 +9,7 @@
 <div>
     <div>
         <h2>Un service de composition accessible</h2>
-        <h3 style="margin: 3em;">B.T.M Production, décliné de José Records est l'organisme qui a à charge la compition d'oeuvre instrumentale</h3>
+        <h3 style="margin: 3em;">B.T.M Production, décliné de José Records est l'organisme qui a à charge la composition d'oeuvre instrumentale</h3>
 
     </div>
 
@@ -24,10 +24,11 @@
         {% endfor %}
 
     </div>
-    
-    <label for="prod-search">Rechercher une prod</label>
-    <input class="research-bar" type="search" id="prod-search" class="" name="btm-type-search" aria-label="Rechercher">
-    <button type="submit" placeholder="Rechercher une prod" class="research-button">Rechercher</button>
+    <form role="search" method="post" action="/btm/search">
+        {% csrf_token %}
+        <input class="research-bar" type="search" id="prod-search" class="" name="btm-type-search" aria-label="Rechercher">
+        <button type="submit" placeholder="Rechercher une prod" class="research-button">Rechercher</button>
+    </form>
 
 </div>
 
@@ -35,12 +36,21 @@
 
 
     <div>
+        {% if research %}
+        
         <h2>{{ type_name }}</h2>
-        <h3>Voilà {{ type_size }} beats du genre {{ type_name }}. Tu peux les écouter et les télécharger à ta guise !</h3>
+        <h3 style="text-align: center">Voici {{ type_size }} résultats pour "{{ type_name }}". Musique Maestro !</h3>
+        
+        {% else %}
+        
+        <h2>{{ type_name }}</h2>
+        <h3 style="text-align: center">Voilà {{ type_size }} beats du genre {{ type_name }}. Tu peux les écouter et les télécharger à ta guise !</h3>
+
+        {% endif %}
 
         {% for prod in prods %}
-        <div id=prod{{ prod.id }} class="instru-card">
-            <div class="button"></div>
+        <div class="instrucard" id="prod{{ prod.id }}">
+            <div class="button-play"></div>
             <h3>{{ prod.name }}</h3>
             <h4>{{ prod.reference }}</h4>
             <audio id="prod{{ forloop.counter0 }}">

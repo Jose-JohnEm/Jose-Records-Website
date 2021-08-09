@@ -27,3 +27,20 @@ def btm_presentation(request):
 def btm_types_presentation(request, type_id):
     context = get_complete_context_with_genre({}, type_id)
     return render(request, 'label/btm.html', context)
+
+def btm_research(request):
+    search = request.POST.get('btm-type-search')
+
+    prods = Prodbeat.objects.filter(name__icontains=search)
+    if prods.count() == 0:
+        prods = Prodbeat.objects.filter(reference__icontains=search)
+        if prods.count() == 0:
+            prods = Prodbeat.objects.filter(genre__name__icontains=search)
+
+    context = get_complete_context({
+        'type_name': search,
+        'research': True,
+        'type_size': prods.count(),
+        'prods': prods,
+    })
+    return render(request, 'label/btm.html', context)
