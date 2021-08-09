@@ -78,9 +78,14 @@ class LD2JMusic(models.Model):
         verbose_name = 'Musique'
         verbose_name_plural = 'Musiques'
 
+
+class DateWithoutTZField(models.DateField):
+    def db_type(self, connection):
+        return 'date'
+
 class LD2JAlbum(models.Model):
     name = models.CharField(verbose_name="Titre de l'album", max_length=30)
-    released = models.CharField(verbose_name="Date de sortie", max_length=30)
+    released = DateWithoutTZField(verbose_name="Date de sortie")
     picture = models.ImageField(verbose_name="Jaquette")
     contributors = models.ManyToManyField(LD2JContributor, verbose_name="Contributeurs", blank=True)
     hyperfollowlink = models.URLField(verbose_name="Lien Hyperfollow")

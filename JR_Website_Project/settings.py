@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 INSTALLED_APPS = [
     'label.apps.LabelConfig',
     'django.contrib.admin',
+    'django_admin_listfilter_dropdown',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

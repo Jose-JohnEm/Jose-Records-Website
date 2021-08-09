@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.html import mark_safe
+from django_admin_listfilter_dropdown.filters import DropdownFilter, ChoiceDropdownFilter, RelatedDropdownFilter
 
 # Register your models here.
 from .models import *
@@ -29,6 +30,9 @@ class ProdTypePageAdmin(admin.ModelAdmin):
 
 @admin.register(Prodbeat)
 class ProdBeatPageAdmin(admin.ModelAdmin):
+    list_filter = [
+        ['name', DropdownFilter]
+    ]
     fieldsets = [[
         None, {
             'fields': ['name', 'reference', 'music', 'genre']
