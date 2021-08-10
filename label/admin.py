@@ -24,7 +24,7 @@ class ArtistLabelPageAdmin(admin.ModelAdmin):
 class ProdTypePageAdmin(admin.ModelAdmin):
     fieldsets = [[
         None, {
-            'fields': ['name']
+            'fields': ['name', 'exemple']
         }
     ]]
 

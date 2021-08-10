@@ -1,0 +1,14 @@
+.welcome_card {
+
+    background: linear-gradient(to bottom, #ffd7d7da 50%, #e0cecedf 100%);
+    box-shadow: 0px 0px 50px black;
+    border-radius: 5em;
+}
+
+.welcome_card_photo {
+    float: center;
+    width: 30em;
+    margin: 5em;
+    border-radius: 5em 1em;
+    box-shadow: 0px 0px 20px black;
+}

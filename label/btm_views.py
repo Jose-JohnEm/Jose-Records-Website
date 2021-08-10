@@ -3,7 +3,7 @@ from .models import Prodbeat, ProdType
 
 BASE_CONTEXT = {
         'nav_current': ['', '', '', 'active'],
-        'page_name': "B.T.M Production",
+        'page_name': "B.T.M",
         'iterable_name': 'ses prods :',
         'app_name': 'btm'
 }
@@ -21,7 +21,7 @@ def get_complete_context_with_genre(dict, genre):
 
 
 def btm_presentation(request):
-    context = get_complete_context({})
+    context = get_complete_context({'prod_types': True})
     return render(request, 'label/btm.html', context)
 
 def btm_types_presentation(request, type_id):

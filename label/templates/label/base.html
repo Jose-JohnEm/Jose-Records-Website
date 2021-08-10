@@ -15,9 +15,28 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/player.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/album.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}" type="text/css">
 
     {% if page_name != "Bienvenue" %}
     <script type="text/javascript">
+    
+    {% if prod_types %}
+        function play_ex(music)
+        {
+            if (music.muted == true)
+            {
+                music.play();
+                music.muted = false;
+                music.currentTime = 0;
+            }
+        }
+
+        function stop_ex(music) 
+        {
+            music.muted = true;
+        }
+    {% endif %}
+
     window.onload = () => {
         
         var my_element = document.getElementById("big-panel");
@@ -27,6 +46,7 @@
             block: "start",
             inline: "nearest"
         });
+
 
         {% if prods %}
 
@@ -111,6 +131,17 @@
     <div id="big-panel" class="big-panel card">
         {% block content %} {% endblock content %}
     </div>
+
+    {% else %}
+
+    <div>
+        <div class="welcome_card">
+            <h2>Je me présente :</h2>
+            <img src="/media/ld2j.jpg" class="welcome_card_photo">
+            <h3>Je me prénomme Jonathan Emmanuel José, j'ai 20 ans et je suis en 3e année d'école d'informatique, à Epitech Lyon.</h3>
+        </div>
+    </div>
+
     {% endif %}
 
 </body>

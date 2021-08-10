@@ -17,7 +17,9 @@
         <h2 style="font-size:2em;">Voici les types de productions produites :</h2>
 
         {% for type in iterable %}
-            <a class="prod-card" href="/btm/{{type.id}}">
+            <audio id="ex{{ forloop.counter0 }}" type="audio/mpeg" src="/media/{{ type.exemple }}" loop muted>
+            </audio>
+            <a class="prod-card" onmouseover="play_ex(document.getElementById('ex{{ forloop.counter0 }}'))" onmouseout="stop_ex(document.getElementById('ex{{ forloop.counter0 }}'))" href="/btm/{{type.id}}">
                 <h3>{{ type.name }}</h3>
                 <h4>{{ type.size }} choix</h4>
             </a>
