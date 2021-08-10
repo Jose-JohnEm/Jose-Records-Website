@@ -60,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'whitelist.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'JR_Website_Project.urls'
